@@ -13,8 +13,14 @@ nconf.env(['PORT', 'NODE_ENV'])
     }
   })
   .defaults({
-    developmentUrl: 'http://localhost:3003',       // url as seen by development client
-    productionUrl: 'http://localhost:3030',        // url as seen by production client
+    development: { // lookup information by the client
+      port: 3003,
+      baseUrl: 'http://localhost'
+    },
+    production: { // lookup information by the client
+      port: 3030,
+      baseUrl: 'http://localhost'
+    }
   });
 
 module.exports = nconf
